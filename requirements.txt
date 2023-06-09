@@ -1,0 +1,9 @@
+joblib
+numpy
+tensorflow
+librosa
+sklearn
+fastapi
+uvicorn
+pydantic
+python-multipart

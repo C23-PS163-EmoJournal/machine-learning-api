@@ -32,7 +32,17 @@ async def create_upload_file(file: UploadFile):
     with open(dest, "wb") as buffer:
         shutil.copyfileobj(file.file, buffer)
 
-    return {"filename": file.filename}
+    # return filename and file path
+    return {"filename": file.filename, "filepath": dest}
+
+# dapatkan list file dari folder uploads
+@app.get("/list_files/")
+async def get_list_files():
+    upload_dir = os.path.join(os.getcwd(), "uploads")
+    files = os.listdir(upload_dir)
+
+    files = [str(i+1)+". "+files[i] for i in range(len(files))]
+    return {"files": files}
 
 @app.get("/")
 def main():

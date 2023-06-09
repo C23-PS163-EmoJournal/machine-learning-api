@@ -6,7 +6,7 @@ import shutil
 
 app = FastAPI()
 
-@app.get("/files/{file_path:path}")
+@app.get("/predict/{file_path:path}")
 def predict(file_path: str):
     file_path = "/"+file_path
     emotion, confidence = prediction(file_path)

@@ -29,13 +29,13 @@ COPY ./assets /code/assets
 # RUN gcsfuse file-suara /mnt/file-suara
 
 # Ensure the script is executable
-RUN chmod +x /app/code/gcsfuse_run.sh
+RUN chmod +x ./app/code/gcsfuse_run.sh
 
 # Use tini to manage zombie processes and signal forwarding
 # https://github.com/krallin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"] 
 
 # Pass the startup script as arguments to Tini
-CMD ["/app/code/gcsfuse_run.sh"]
+CMD ["./app/code/gcsfuse_run.sh"]
 
 # CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"

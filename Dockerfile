@@ -1,6 +1,6 @@
 FROM python:3.8.10
  
-# WORKDIR /code
+WORKDIR /code
  
 # COPY ./requirements.txt /code/requirements.txt
  
@@ -29,13 +29,13 @@ COPY ./assets /code/assets
 # RUN gcsfuse file-suara /mnt/file-suara
 
 # Ensure the script is executable
-RUN chmod +x ./app/code/gcsfuse_run.sh
+RUN chmod +x /gcsfuse_run.sh
 
 # Use tini to manage zombie processes and signal forwarding
 # https://github.com/krallin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"] 
 
 # Pass the startup script as arguments to Tini
-CMD ["./app/code/gcsfuse_run.sh"]
+CMD ["gcsfuse_run.sh"]
 
 # CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"

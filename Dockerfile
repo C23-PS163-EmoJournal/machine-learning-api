@@ -27,7 +27,7 @@ COPY ./app /code/app
 COPY ./assets /code/assets
 
 # Ensure the script is executable
-RUN chmod +x /app/code/gcsfuse_run.sh
+# RUN chmod +x /app/code/gcsfuse_run.sh
 
 # Use tini to manage zombie processes and signal forwarding
 # https://github.com/krallin/tini

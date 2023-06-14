@@ -21,10 +21,12 @@ RUN set -e; \
     && apt-get clean
 
 # Set fallback mount directory
-ENV MNT_DIR /mnt/gcs
+# ENV MNT_DIR /mnt/gcs
 
 COPY ./app /code/app
 COPY ./assets /code/assets
+
+RUN gcsfuse file-suara /mnt/file-suara
 
 # Ensure the script is executable
 # RUN chmod +x /app/code/gcsfuse_run.sh
@@ -36,4 +38,4 @@ COPY ./assets /code/assets
 # Pass the startup script as arguments to Tini
 # CMD ["/app/code/gcsfuse_run.sh"]
 
-CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]
+CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"

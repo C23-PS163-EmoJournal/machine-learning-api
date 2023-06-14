@@ -1,10 +1,6 @@
-FROM python:3.8.10
- 
-WORKDIR /code
- 
-# COPY ./requirements.txt /code/requirements.txt
- 
-# RUN pip install --no-cache-dir --upgrade -r /code/requirements.txt
+# Use the official lightweight Python image.
+# https://hub.docker.com/_/python
+FROM python:3.11-buster
 
 # Install system dependencies
 RUN set -e; \
@@ -23,19 +19,20 @@ RUN set -e; \
 # Set fallback mount directory
 ENV MNT_DIR /mnt/gcs
 
-COPY ./app /code/app
-COPY ./assets /code/assets
+# Copy local code to the container image.
+ENV APP_HOME /app
+WORKDIR $APP_HOME
+COPY . ./
 
-# RUN gcsfuse file-suara /mnt/file-suara
+# Install production dependencies.
+RUN pip install -r requirements.txt
 
 # Ensure the script is executable
-RUN chmod +x /gcsfuse_run.sh
+RUN chmod +x /app/gcsfuse_run.sh
 
 # Use tini to manage zombie processes and signal forwarding
 # https://github.com/krallin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"] 
 
 # Pass the startup script as arguments to Tini
-CMD ["gcsfuse_run.sh"]
-
-# CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"
+CMD ["/app/gcsfuse_run.sh"]

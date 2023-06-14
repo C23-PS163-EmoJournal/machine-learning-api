@@ -27,7 +27,8 @@ ENV MNT_DIR /mnt/gcs
 ENV APP_HOME /app
 WORKDIR $APP_HOME
 COPY . ./
- 
+
+COPY ./app/gcsfuse_run.sh ./app
 COPY ./app /code/app
 COPY ./assets /code/assets
 

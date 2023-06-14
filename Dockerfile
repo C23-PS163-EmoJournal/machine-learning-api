@@ -23,23 +23,17 @@ RUN set -e; \
 # Set fallback mount directory
 ENV MNT_DIR /mnt/gcs
 
-# Copy local code to the container image.
-ENV APP_HOME /app
-WORKDIR $APP_HOME
-COPY . ./
-
-COPY ./app/gcsfuse_run.sh ./app
 COPY ./app /code/app
 COPY ./assets /code/assets
 
 # Ensure the script is executable
-RUN chmod +x /app/gcsfuse_run.sh
+RUN chmod +x /app/code/gcsfuse_run.sh
 
 # Use tini to manage zombie processes and signal forwarding
 # https://github.com/krallin/tini
 ENTRYPOINT ["/usr/bin/tini", "--"] 
 
 # Pass the startup script as arguments to Tini
-CMD ["/app/gcsfuse_run.sh"]
+CMD ["/app/code/gcsfuse_run.sh"]
 
 CMD ["uvicorn", "app.main:app", "--host", "0.0.0.0", "--port", "80"]

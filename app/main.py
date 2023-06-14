@@ -30,7 +30,7 @@ def download_predict(name: str):
         bucket = storage.Bucket(client, 'file-suara')
         
         # make folder path
-        path_folder = f'./downloads/{bucket.name}'
+        path_folder = f'../code/downloads/{bucket.name}'
         Path(path_folder).mkdir(parents=True, exist_ok=True)
 
         # download file
@@ -54,7 +54,7 @@ def download_predict(name: str):
 
 @app.post("/uploadfile/")
 async def create_upload_file(file: UploadFile):
-    upload_dir = os.path.join(os.getcwd(), "./downloads/")
+    upload_dir = os.path.join(os.getcwd(), "../code/downloads/")
     # Create the upload directory if it doesn't exist
     if not os.path.exists(upload_dir):
         os.makedirs(upload_dir)
@@ -73,7 +73,7 @@ async def create_upload_file(file: UploadFile):
 # dapatkan list file dari folder uploads
 @app.get("/list_files/")
 async def get_list_files():
-    upload_dir = os.path.join(os.getcwd(), "./downloads/")
+    upload_dir = os.path.join(os.getcwd(), "../code/downloads/")
     files = os.listdir(upload_dir)
 
     files = [str(i+1)+". "+files[i] for i in range(len(files))]

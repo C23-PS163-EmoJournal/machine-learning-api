@@ -7,3 +7,5 @@ fastapi
 uvicorn
 pydantic
 python-multipart
+pathlib
+google-cloud-storage

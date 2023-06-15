@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "emojournal-389307",
+  "private_key_id": "a8b119dfc234458701516fbc4877410434c51aef",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvQIBADANBgkqhkiG9w0BAQEFAASCBKcwggSjAgEAAoIBAQDMlNt84uHPu7gn\n91fQuxHJDQPyEKZELEig/GxZHugDN0CeFw4x6S92qWiyBKRYymjfiGNobXoHiLai\nFq/tSjHjZOurnUK8XsrDLriZDaqBFLzMGsnKGvBQMzKiTov/KIm6CE0DRk6HAUop\nuFWRhw72bjgPAfcKmiSO46jdHB8Oeg03OLzJ03ntMgXmqeBeo1Ij+NJdnoMDOAs9\nSG/RCnd8h2fk25qFVtWj3CW5bo2kBsqs0K4KwdvgHYConSZCyQQx8HW7yThULhg2\nQ6dKSbZSk5N89o10ESm3V547LlIXkByYiKQGUa1eehe2Z4fKOZJZjf7YF1zkKdxm\n7w+QQ009AgMBAAECggEAHdn8sEY/h+XO0yTFeg4fOWnTm7nai6kLN1O4kEUxD+27\nLouTr9cO7MQpzuFcL8k9MJzV+zIPnn4llBThD9awh+CSfi9LbRwcfwrYDHE7jME/\nY+g8GJMCDNnOTMj5pujoi9jT5U3tfcfuOpSMsS2hZ8uhFMOHI34Re+Nz9kDjto34\nMuT3HTFiLZ415VMlsNSLTtkeVCTxtPlc47l2mUaYOGAjd5AyvmzOd+FBajilf9bu\nKjkjl9xO8QcmayExMPUQ+TO6eb97u9Yf/D/viaziKW/G06avx8mUY+r/UHf2ATzg\nI8Bp+fqQFm6XcN+TIPfE55tsUT5Z1/3gZoc8Tlo9qwKBgQDou8JaBZByhNeaW486\n7D8XnWhzsTI6tOcZXf8tnsq6SfmwwH49EKyDFHoluX2OyuyPYZhaddixDvJ1ixBb\n33KnJzuXDyI+pADpS5Llj1LyDvx78ad2VixO4JIUSvx+g3J0ksNlZk4Ik8PO9BJr\nynNVB1ajChQzuHjofHcRojZMwwKBgQDhCJ4t/TzwC8jSCp5sNmgGu4ETJJr9345/\ndB18JKT9Knoo0RdbYLKiET+eeMEP00S3Si+JkGOms3fvAzNXpqT3pqkU6EDDKE2Z\nE+jwn92VqWdfDdcyZFbdZUS+v4FlwKWhZwRDxtkU5ISupv2aBOrA0NXirraeImVi\nEuSIN+5d/wKBgAsawlg3QcAlFIB58+iU0yHWUeCLSOFCNnCgaoeLtxKSawaC+MMD\nI6gRdw6LvjDs/8KLnpBaZR91nh37p6kqjTbqiU5Y24Jvotd+0qB/aS7BhkyHqDze\nObj9wBqVxVxn+zMSuZ4B9qE0I7ihLqvT+hLJidm3pmUdXS+CmM/PlJWvAoGAEhCM\nCisTEj4P7/SURSGU9j1lHjFJE+o3WTnsCAQ1DnGzfsVSN66qiGIUFlehP/D4yjH1\nYPirVz1++jvqijXBdnP1jM0cLc51dD1p7K8YraP8vV+yD8SISJuRijJ7Y7y0TyGi\n8QHseUXi9NZI821Dnxjkop7d4BHoy5eyqtC6nOcCgYEAxi61BaLNbXaoPm+O/eT4\n6/Z77wnwIUaaLItDjJABeLrD3RVipUc96+4n64bjOdpJmVsvCpF5pANjlTsRsvVK\nJFN/OzJZT244HHWtljRadR9qgfrkX2wcYJPoSeuySdnv3ZHzzeYjAYJNdfk9qo+1\nkrNyOJwz4ovA0nnraUVeDys=\n-----END PRIVATE KEY-----\n",
+  "client_email": "access-bucket-suara@emojournal-389307.iam.gserviceaccount.com",
+  "client_id": "116931344521146293617",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/access-bucket-suara%40emojournal-389307.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}

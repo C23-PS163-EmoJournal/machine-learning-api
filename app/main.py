@@ -4,9 +4,9 @@ from app.module import *
 import os
 import shutil
 
-# from pathlib import Path
-# from google.cloud import storage
-# from google.cloud.exceptions import NotFound
+from pathlib import Path
+from google.cloud import storage
+from google.cloud.exceptions import NotFound
 
 app = FastAPI()
 
@@ -21,35 +21,35 @@ def predict(file_path: str):
         "Confidence": str(confidence)
     }
 
-# @app.get("/predict_from_bucket/{name}")
-# def download_predict(name: str):
-#     try:
-#         # set path to private key and make client
-#         path_to_private_key = '../code/assets/google-cloud-key.json'
-#         client = storage.Client.from_service_account_json(json_credentials_path=path_to_private_key)
-#         bucket = storage.Bucket(client, 'file-suara')
+@app.get("/predict_from_bucket/{name}")
+def download_predict(name: str):
+    try:
+        # set path to private key and make client
+        path_to_private_key = '../code/assets/google-cloud-key.json'
+        client = storage.Client.from_service_account_json(json_credentials_path=path_to_private_key)
+        bucket = storage.Bucket(client, 'file-suara')
         
-#         # make folder path
-#         path_folder = f'../code/downloads/{bucket.name}'
-#         Path(path_folder).mkdir(parents=True, exist_ok=True)
+        # make folder path
+        path_folder = f'../code/downloads/{bucket.name}'
+        Path(path_folder).mkdir(parents=True, exist_ok=True)
 
-#         # download file
-#         blob = bucket.blob(name)     
-#         blob.download_to_filename(f'{path_folder}/{blob.name}')
-#         # return f'{path_folder}/{blob.name}'
+        # download file
+        blob = bucket.blob(name)     
+        blob.download_to_filename(f'{path_folder}/{blob.name}')
+        # return f'{path_folder}/{blob.name}'
 
-#         # prediction
-#         emotion, confidence = prediction(f'{path_folder}/{blob.name}')
+        # prediction
+        emotion, confidence = prediction(f'{path_folder}/{blob.name}')
     
-#         return {
-#             "path_file": "{path_folder}/{blob.name}"
-#             "message": "200, Predict success",
-#             "Emotion": emotion,
-#             "Confidence": str(confidence)
-#         }
+        return {
+            "path_file": "{path_folder}/{blob.name}",
+            "message": "200, Predict success",
+            "Emotion": emotion,
+            "Confidence": str(confidence)
+        }
     
-#     except:
-#         return { f'{blob.name} does not exist - do something' }
+    except:
+        return { f'{blob.name} does not exist - do something' }
         
 
 # @app.post("/uploadfile/")

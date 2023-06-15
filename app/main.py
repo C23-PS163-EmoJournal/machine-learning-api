@@ -52,32 +52,32 @@ def download_predict(name: str):
         return { f'{blob.name} does not exist - do something' }
         
 
-# @app.post("/uploadfile/")
-# async def create_upload_file(file: UploadFile):
-#     upload_dir = os.path.join(os.getcwd(), "../code/downloads/")
-#     # Create the upload directory if it doesn't exist
-#     if not os.path.exists(upload_dir):
-#         os.makedirs(upload_dir)
+@app.post("/uploadfile/")
+async def create_upload_file(file: UploadFile):
+    upload_dir = os.path.join(os.getcwd(), "../code/downloads/")
+    # Create the upload directory if it doesn't exist
+    if not os.path.exists(upload_dir):
+        os.makedirs(upload_dir)
 
-#     # get the destination path
-#     dest = os.path.join(upload_dir, file.filename)
-#     print(dest)
+    # get the destination path
+    dest = os.path.join(upload_dir, file.filename)
+    print(dest)
 
-#     # copy the file contents
-#     with open(dest, "wb") as buffer:
-#         shutil.copyfileobj(file.file, buffer)
+    # copy the file contents
+    with open(dest, "wb") as buffer:
+        shutil.copyfileobj(file.file, buffer)
 
-#     # return filename and file path
-#     return {"filename": file.filename, "filepath": dest}
+    # return filename and file path
+    return {"filename": file.filename, "filepath": dest}
 
-# # dapatkan list file dari folder uploads
-# @app.get("/list_files/")
-# async def get_list_files():
-#     upload_dir = os.path.join(os.getcwd(), "../code/downloads/")
-#     files = os.listdir(upload_dir)
+# dapatkan list file dari folder uploads
+@app.get("/list_files/")
+async def get_list_files():
+    upload_dir = os.path.join(os.getcwd(), "../code/downloads/")
+    files = os.listdir(upload_dir)
 
-#     files = [str(i+1)+". "+files[i] for i in range(len(files))]
-#     return {"files": files}
+    files = [str(i+1)+". "+files[i] for i in range(len(files))]
+    return {"files": files}
 
 @app.get("/")
 def main():
